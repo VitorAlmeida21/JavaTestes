@@ -1,0 +1,42 @@
+# Ignore arquivos compilados do Java
+*.class
+
+# Pastas comuns de build
+bin/
+build/
+out/
+
+# Ignore arquivos de backup do editor
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Ignore arquivos do VSCode
+.vscode/
+
+# Ignore arquivos do IntelliJ IDEA
+.idea/
+*.iml
+
+# Ignore arquivos temporários do Jupyter Notebook
+.ipynb_checkpoints/
+
+# Ignore caches do Jupyter e IPython
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Ignore arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Ignore ambiente virtual (caso use Python no projeto também)
+.env/
+.venv/
+venv/
+ENV/
+env/
