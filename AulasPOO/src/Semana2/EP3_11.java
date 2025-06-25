@@ -1,4 +1,5 @@
 package Semana2;
+import java.util.Scanner;
 
 class Carrinho{
     public int inserirItem(int itemA, int itemB){
@@ -15,14 +16,28 @@ class Carrinho{
 public class EP3_11 {
     public static void main(String[] args){
         Carrinho carrinho = new Carrinho();
-
-        int totalQuantidade = carrinho.inserirItem(5, 10);
-        System.out.println("Total de itens: " + totalQuantidade);
-
-        String descricao = carrinho.inserirItem("Mouse", "Teclado");
-        System.out.println(descricao);
-
-        double totalPreco = carrinho.inserirItem(11.20f, 2.80f);
-        System.out.println("Preço total: R$" + totalPreco);
+        Scanner s = new Scanner(System.in);
+        
+        String tipo = s.nextLine();
+        
+        if(tipo.equals("quantidade")){
+            int x = Integer.parseInt(s.nextLine());
+            int y = Integer.parseInt(s.nextLine());
+            
+            System.out.println(carrinho.inserirItem(x, y));
+            
+        } else if(tipo.equals("itens")){
+            String x = s.nextLine();
+            String y = s.nextLine();
+            
+            System.out.println(carrinho.inserirItem(x, y));
+            
+        } else if(tipo.equals("preco")){
+            float x = Float.parseFloat(s.nextLine());
+            float y = Float.parseFloat(s.nextLine());
+            
+            System.out.println(carrinho.inserirItem(x, y));
+        
+        }
     }
 }
