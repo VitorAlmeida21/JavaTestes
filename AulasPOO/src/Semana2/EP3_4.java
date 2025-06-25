@@ -32,7 +32,7 @@ class ClienteVip extends Cliente{
 class ClientePremium extends Cliente{
     @Override
     public double calcularDesconto(double valor){
-        return (valor*0.80);
+        return (valor*0.85);
     }
 }
 
