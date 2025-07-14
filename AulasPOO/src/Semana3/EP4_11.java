@@ -5,7 +5,6 @@ abstract class Produto{
     private String nome;
     private double preco;
     private String categoria;
-
     public Produto(String nome, double preco, String categoria){
         this.nome = nome;
         this.preco = preco;
@@ -28,17 +27,17 @@ abstract class Produto{
 
     public double calcularDescontoTotal(){
         double descontoBase = calcularDesconto();
-        double descontoAdicional = 0.00;
+        double descontoAdicional = 0.0;
 
         if(categoria.equals("PROMOCIONAL")){
-            descontoAdicional = preco * 0.05;
+            return  descontoAdicional = preco * 0.05;
         }
         return descontoBase + descontoAdicional;
     }
 
     public double calcularFrete(double pesoOuZero){
         if(categoria.equals("PROMOCIONAL") || categoria.equals("DIGITAL")){
-            return 0.00;
+                return 0.00;
         }
         return pesoOuZero * 0.10;
     }
@@ -50,7 +49,7 @@ abstract class Produto{
         double total = precoComDesconto + frete;
 
         System.out.println(getClass().getSimpleName() + ": " + getNome());
-        System.out.printf("Preço original: %.2f\n", getPreco());
+        System.out.printf("Preço original: %.2f\n", preco);
         System.out.printf("Desconto total: %.2f\n", desconto);
         System.out.printf("Frete: %.2f\n", frete);
         System.out.printf("Total com frete: %.2f\n", total);
@@ -64,7 +63,7 @@ class Eletronico extends Produto{
 
     @Override
     public double calcularDesconto(){
-        return getPreco() * 0.05;
+        return getPreco()*0.05;
     }
 }
 
@@ -102,7 +101,7 @@ class EP4_11{
 
         Produto produto;
 
-        switch (tipo){
+        switch(tipo){
             case "ELETRONICO":
                 produto = new Eletronico(nome, preco, categoria);
                 break;
@@ -113,14 +112,10 @@ class EP4_11{
                 produto = new Livro(nome, preco, categoria);
                 break;
             default:
-                System.out.println("Tipo de produto inválido!");
-                s.close();
+                System.out.println("Tipo indefinido");
                 return;
-
         }
 
         produto.exibirResumo(pesoOuZero);
-
-        s.close();
     }
 }

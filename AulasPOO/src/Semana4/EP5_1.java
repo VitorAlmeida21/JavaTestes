@@ -1,20 +1,21 @@
 package Semana4;
 import java.util.Scanner;
 
-public class EP5_1 {
+class EP5_1{
     public static void main(String[] args){
         Scanner s = new Scanner(System.in);
 
         try{
             int a = s.nextInt();
             int b = s.nextInt();
-            double resultado = (double) a/b;
+            double resultado = a/b;
+
             System.out.println(resultado);
-        } catch (ArithmeticException e){
-            System.out.println("Erro: Divisão por zero não permitida.");
-        } catch (Exception e){
-            System.out.println("Erro: Valores inválidos");
-        } finally{
+        }catch (ArithmeticException e){
+            System.out.println("Não é possível dividir por zero.");
+        }catch (Exception e){
+            System.out.println("Valores inválidos");
+        }finally{
             s.close();
         }
     }
