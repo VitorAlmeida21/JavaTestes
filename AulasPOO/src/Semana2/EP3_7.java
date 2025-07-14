@@ -1,10 +1,9 @@
-package Semana2;
+ package Semana2;
 import java.util.Scanner;
 
 class Personagem{
     private String nome;
     private double vida;
-
     public Personagem(String nome, double vida){
         this.nome = nome;
         this.vida = vida;
@@ -18,16 +17,16 @@ class Personagem{
         return vida;
     }
 
-    public void reduzirVida(double dano) {
-        vida -= dano;
+    public void atacar(Personagem alvo){
+
     }
 
     public boolean condicaoVida(){
         return vida > 0;
     }
 
-    public void atacar(Personagem alvo){
-
+    public double reduzirVida(double dano){
+        return vida -= dano;
     }
 }
 
@@ -41,36 +40,37 @@ class Guerreiro extends Personagem{
 
     @Override
     public void atacar(Personagem alvo){
-        alvo.reduzirVida(forcaAtaque);
-        System.out.println(getNome() + " ataca " + alvo.getNome() + "! " + alvo.getNome() +
-                " tem " + alvo.getVida() + " de vida.");
-    }
-}
-
-class Mago extends Personagem{
-    private double poderMagico;
-
-    public Mago(String nome, double vida, double poderMagico){
-        super(nome, vida);
-        this.poderMagico = poderMagico;
-    }
-
-    @Override
-    public void atacar(Personagem alvo){
-        double dano = poderMagico * 1.5;
+        double dano = forcaAtaque;
         alvo.reduzirVida(dano);
-        System.out.println(getNome() + " ataca " + alvo.getNome() + "! " + alvo.getNome() +
-                " tem " + alvo.getVida() + " de vida.");
+        System.out.println(getNome() + " ataca " + alvo.getNome() + "! " +
+                alvo.getNome() + " tem " + alvo.getVida() + " de vida.");
     }
 }
 
-public class EP3_7 {
+ class Mago extends Personagem{
+     private double poderMagico;
+
+     public Mago(String nome, double vida, double poderMagico){
+         super(nome, vida);
+         this.poderMagico = poderMagico;
+     }
+
+     @Override
+     public void atacar(Personagem alvo){
+         double dano = poderMagico * 1.5;
+         alvo.reduzirVida(dano);
+         System.out.println(getNome() + " ataca " + alvo.getNome() + "! " +
+                 alvo.getNome() + " tem " + alvo.getVida() + " de vida.");
+     }
+ }
+
+class EP3_7{
     public static void main(String[] args){
         Scanner s = new Scanner(System.in);
 
         Personagem[] personagens = new Personagem[2];
 
-        for(int i = 0; i <2; i++){
+        for(int i = 0; i<2; i++){
             String linha = s.nextLine();
             String[] partes = linha.split(" ");
 
@@ -81,7 +81,7 @@ public class EP3_7 {
             if(tipo.equals("G")){
                 double forcaAtaque = Double.parseDouble(partes[3]);
                 personagens[i] = new Guerreiro(nome, vida, forcaAtaque);
-            }else if(tipo.equals("M")){
+            } else if(tipo.equals("M")){
                 double poderMagico = Double.parseDouble(partes[3]);
                 personagens[i] = new Mago(nome, vida, poderMagico);
             }
@@ -98,10 +98,10 @@ public class EP3_7 {
         }
 
         if(!p1.condicaoVida()){
-            System.out.println(p1.getNome() + " foi derrotado!");
+            System.out.println(p1.getNome() + " foi derrotado.");
         }
         if(!p2.condicaoVida()){
-            System.out.println(p2.getNome() + " foi derrotado!");
+            System.out.println(p2.getNome() + " foi derrotado.");
         }
 
         System.out.println("Batalha encerrada!");
