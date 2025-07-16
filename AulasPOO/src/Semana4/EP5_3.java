@@ -2,35 +2,34 @@ package Semana4;
 import java.util.Scanner;
 
 class EP5_3{
-    public static String calcularMedia(String notas){
+    public static String CalculadoraMedia(String notas){
         try{
             if(notas.trim().isEmpty()){
-                return "Erro: Lista vazia";
+                return "Erro: Lista vazia\n";
             }
 
             String[] partes = notas.split(",");
-
-            double soma = 0;
+            double soma = 0.0;
             for(String parte : partes){
-                parte = parte.trim();
-                double valor = Double.parseDouble(parte);
-                soma += valor;
+                double nota = Double.parseDouble(parte);
+                soma += nota;
             }
-
             double media = soma / partes.length;
             return String.format("Média: %.2f", media);
-        }catch(NumberFormatException e ){
+
+        }catch(NumberFormatException e){
             return "Erro: Valor não numérico encontrado";
         }catch(Exception e){
-            return "Erro: Problema inesperado";
+            return "Erro inesperado.\n";
         }
+
     }
 
     public static void main(String[] args){
         Scanner s = new Scanner(System.in);
         String entrada = s.nextLine();
 
-        System.out.println(calcularMedia(entrada));
+        System.out.println(CalculadoraMedia(entrada));
 
         s.close();
     }
