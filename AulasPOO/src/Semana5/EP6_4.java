@@ -1,5 +1,6 @@
 package Semana5;
 import java.util.*;
+//EP6_4 – Casa Inteligente
 
 // Simulação de ValueError
 class ValueError extends Exception {

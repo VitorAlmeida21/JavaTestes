@@ -1,4 +1,5 @@
 package Semana3;
+//EP4_11 – Produtos com desconto e frete
 import java.util.Scanner;
 
 abstract class Produto{

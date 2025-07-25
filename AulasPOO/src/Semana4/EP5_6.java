@@ -1,6 +1,7 @@
 package Semana4;
 import java.util.*;
 
+//EP5_6 – Validador de Personagem
 class AtributoInvalidoException extends Exception {
     public AtributoInvalidoException(String mensagem) {
         super(mensagem);

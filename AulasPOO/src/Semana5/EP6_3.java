@@ -1,4 +1,4 @@
-package Semana5;
+/*package Semana5;
 import java.util.*;
 
 // Exceção customizada para simular ValueError
@@ -156,3 +156,4 @@ public class EP6_4 {
         sc.close();
     }
 }
+*/

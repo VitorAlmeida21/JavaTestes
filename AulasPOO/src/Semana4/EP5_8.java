@@ -1,6 +1,6 @@
 package Semana4;
 import java.util.*;
-
+//EP5_8 – Sistema Hospitalar com múltiplas exceções
 class PacienteException extends Exception {
     public PacienteException(String mensagem) {
         super(mensagem);
